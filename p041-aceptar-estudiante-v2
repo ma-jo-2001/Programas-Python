@@ -1,0 +1,31 @@
+# p041-aceptar-estudiante-v2
+# Solicitud datos de aspirante 
+
+print("\033[2J\033[H", end="")
+print("Proceso de admision\n")
+
+nombre = input("Ingresa tu nombre:")
+sexo = input("Ingresa tu sexo (h/m):").lower()
+edad = int(input("Ingresa tu edad:"))
+
+print("\n Ingresa 3 calificaciones:")
+
+c1 = float(input("Calificacion 1:"))
+c2 = float(input("Calificacion 2:"))
+c3 = float(input("Calificacion 3:"))
+
+promedio = (c1 + c2 + c3) / 3
+es_aceptado = (edad > 21) and (8 <= promedio <= 9.5)
+
+print(f"Resultado para {nombre}")
+
+if es_aceptado:
+    print(f"Aceptado(a): ¡Felicidades {nombre}! Cumples con todos los requisitos.")
+else:
+    print("Rechazado(a) por la(s) siguiente(s) razón(es):")
+    if edad <= 21:
+        print("- Debe ser mayor de 21 años.")
+    if promedio < 8 or promedio > 9.5:
+        print(f"- El promedio ({promedio:.2f}) no está en el rango permitido (8.0 a 9.5).")
+
+print("\nPrograma terminado")
